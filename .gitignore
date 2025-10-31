@@ -22,3 +22,7 @@ pids
 # OS files
 .DS_Store
 Thumbs.db
+
+# LevelDB data
+db/
+test-db/
