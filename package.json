@@ -5,12 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "jest": "^30.2.0",
+    "level": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "supertest": "^7.1.4"
   }
 }
