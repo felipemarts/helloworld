@@ -18,7 +18,7 @@ class TaskManager {
   // Create a new task
   async createTask(title, description = '') {
     // Generate a more unique ID by combining timestamp with random value
-    const id = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const id = `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     const task = {
       id,
       title,
@@ -31,7 +31,6 @@ class TaskManager {
     return task;
   }
 
-  // Read a single task by ID
   // Read a single task by ID
   async getTask(id) {
     try {
