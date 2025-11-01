@@ -20,12 +20,14 @@ Uma aplicação completa de lista de tarefas (To-Do List) construída com Node.j
 ## Instalação
 
 ```bash
+cd server
 npm install
 ```
 
 ## Executando a Aplicação
 
 ```bash
+cd server
 npm start
 ```
 
@@ -34,6 +36,7 @@ A aplicação estará disponível em `http://localhost:3000`
 ## Executando os Testes
 
 ```bash
+cd server
 npm test
 ```
 
@@ -41,14 +44,16 @@ npm test
 
 ```
 helloworld/
-├── index.js              # Servidor Express e rotas da API
-├── taskManager.js        # Gerenciador de tarefas com LevelDB
-├── public/
-│   ├── index.html        # Interface do usuário
-│   └── app.js           # Lógica frontend
-├── taskManager.test.js   # Testes do TaskManager
-├── api.test.js          # Testes da API
-└── jest.config.js       # Configuração do Jest
+├── README.md            # Este arquivo
+└── server/              # Pasta do servidor
+    ├── index.js              # Servidor Express e rotas da API
+    ├── taskManager.js        # Gerenciador de tarefas com LevelDB
+    ├── public/
+    │   ├── index.html        # Interface do usuário
+    │   └── app.js           # Lógica frontend
+    ├── taskManager.test.js   # Testes do TaskManager
+    ├── api.test.js          # Testes da API
+    └── jest.config.js       # Configuração do Jest
 ```
 
 ## API Endpoints
