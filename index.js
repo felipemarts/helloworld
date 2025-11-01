@@ -7,6 +7,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const taskManager = new TaskManager();
 
+setInterval(() => {
+  console.log(`✓ Servidor rodando: ${new Date()}\n`);
+}, 1000);
+
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static('public'));
