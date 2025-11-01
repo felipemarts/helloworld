@@ -1,31 +1,21 @@
-const request = require('supertest');
-const fs = require('fs');
+import fs from 'fs';
+import path from 'path';
+import request from 'supertest';
+import { app, taskManager, server } from '../src/index';
+
+const DB_PATH = path.resolve(__dirname, '../db');
 
 describe('Task API Endpoints', () => {
-  let app;
-  let taskManager;
-  let server;
-
-  beforeAll(() => {
-    // Import after ensuring clean state
-    const indexModule = require('./index');
-    app = indexModule.app;
-    taskManager = indexModule.taskManager;
-  });
-
   beforeEach(async () => {
-    // Clear all tasks before each test
     await taskManager.clearAll();
   });
 
   afterAll(async () => {
-    // Clean up
     await taskManager.close();
-    
-    // Remove test database directory
-    const dbPath = './db';
-    if (fs.existsSync(dbPath)) {
-      fs.rmSync(dbPath, { recursive: true, force: true });
+    server.close();
+
+    if (fs.existsSync(DB_PATH)) {
+      fs.rmSync(DB_PATH, { recursive: true, force: true });
     }
   });
 
@@ -72,7 +62,6 @@ describe('Task API Endpoints', () => {
     });
 
     test('should return all tasks', async () => {
-      // Create some tasks
       await request(app).post('/api/tasks').send({ title: 'Task 1' });
       await request(app).post('/api/tasks').send({ title: 'Task 2' });
       await request(app).post('/api/tasks').send({ title: 'Task 3' });
@@ -179,7 +168,6 @@ describe('Task API Endpoints', () => {
         .delete(`/api/tasks/${taskId}`)
         .expect(204);
 
-      // Verify task is deleted
       await request(app)
         .get(`/api/tasks/${taskId}`)
         .expect(404);

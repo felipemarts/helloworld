@@ -26,3 +26,6 @@ Thumbs.db
 # LevelDB data
 db/
 test-db/
+
+# Build output
+dist/

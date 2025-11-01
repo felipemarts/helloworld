@@ -22,6 +22,7 @@ Uma aplicação completa de lista de tarefas (To-Do List) construída com Node.j
 ```bash
 cd server
 npm install
+npm run build
 ```
 
 ## Executando a Aplicação
